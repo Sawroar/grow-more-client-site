@@ -7,6 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../assets/AuthProvider/AuthProvider';
 import { FaUser } from 'react-icons/fa';
+import './Header.css'
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
 
@@ -16,29 +17,32 @@ const Header = () => {
             .catch(error => console.error(error))
     }
     return (
-        <Navbar bg="dark" expand="lg" className='mb-5 '>
-            <Container className='d-flex justify-content-around'>
+        <Navbar bg="dark" expand="lg" className='mb-3 '>
+            <Container className='d-flex justify-content-between align-items-cente'>
                 <div>
                     <Image src='../../public/grow.png'></Image>
-                    <Navbar.Brand href="#home"><span className='text-primary fs-2 fw-bold'>Grow</span><span className=' fs-2 fw-bold text-success'>More</span>
+                    <Navbar.Brand > <Link to='/' className='link'><span className='text-primary fs-2 fw-bold '>Grow</span><span className=' fs-2 fw-bold text-success  '>More</span></Link>
                     </Navbar.Brand>
                 </div>
                 <div>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link className='text-white'>Courses</Nav.Link>
+                            <Nav.Link className='text-white'> <Link to='/courses' className='text-white  link'>Courses</Link></Nav.Link>
                             <Nav.Link className='text-white'>Blog</Nav.Link>
                             <Nav.Link className='text-white'>FAQ</Nav.Link>
                             <Nav.Link className='text-white'>{user?.uid ?
-                                <>
+                                <Nav.Link >
                                     <span>{user?.displayName}</span>
-                                    <Nav.Link onClick={handleLogOut} className='text-white'>LogOut</Nav.Link>
-                                </> :
-                                <>
-                                    <Nav.Link ><Link to='/login' className='text-white'>Log In</Link>           </Nav.Link>
-                                    <Nav.Link className='text-white'><Link to='/register' className='text-white'> Register</Link></Nav.Link>
-                                </>}
+                                    <Nav.Link onClick={handleLogOut} className='text-white  link'>LogOut
+                                    </Nav.Link>
+                                </Nav.Link>
+                                :
+                                <Nav.Link >
+                                    <Nav.Link ><Link to='/login' className='text-white  link'>Log In</Link></Nav.Link>
+                                    <Nav.Link className='text-white'><Link to='/register' className='text-white  link'> Register</Link></Nav.Link>
+                                </Nav.Link>
+                            }
                             </Nav.Link>
                             <Nav.Link>
                                 {user?.photoURL ?

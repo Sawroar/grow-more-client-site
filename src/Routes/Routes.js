@@ -14,16 +14,24 @@ export const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-            }, {
+            }
+            ,
+            {
                 path: '/category/:id',
                 element: <Category></Category>
-            }, {
-                path: '/course/:id',
+            }
+            ,
+            {
+                path: '/courses',
                 element: <Courses></Courses>
-            }, {
+            },
+
+            {
                 path: '/login',
                 element: <div className="container"> <Login></Login></div>
-            }, {
+            }
+            ,
+            {
                 path: '/register',
                 element: <Register></Register>
             }

@@ -4,7 +4,7 @@ const Category = () => {
 
     return (
         <div className='border'>
-
+            This is Category
         </div >
     );
 };

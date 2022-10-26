@@ -52,7 +52,7 @@ const Login = () => {
             </Button>
             <br />
             <ButtonGroup vertical className='mt-2'>
-                <Button onClick={handleGoogleSignIn} className='mb-2' variant='outline-primary' > <FaGoogle></FaGoogle>Log in with Google</Button>
+                <Button onClick={handleGoogleSignIn} className='mb-2' variant='outline-primary' ><div className='d-flex align-items-center '><FaGoogle className='mr-5'></FaGoogle>Log in with Google</div> </Button>
                 <Button variant='outline-dark'><FaGithub></FaGithub>Log in with Github</Button>
             </ButtonGroup>
         </Form>
