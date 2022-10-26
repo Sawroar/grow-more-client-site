@@ -1,6 +1,8 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
+import Category from '../Pages/Category';
+import LeftSideNav from '../Pages/LeftSideNav';
 import Footer from '../Shared/Footer';
 import Header from '../Shared/Header';
 
@@ -10,9 +12,9 @@ const Main = () => {
             <Header></Header>
             <Container>
                 <Row>
-                    <Col lg='2'> <h3>Left Side</h3>
+                    <Col lg='4'> <LeftSideNav></LeftSideNav>
                     </Col>
-                    <Col lg='10'>
+                    <Col lg='8'>
                         <Outlet></Outlet>
                     </Col>
                 </Row>

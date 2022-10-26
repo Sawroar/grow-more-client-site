@@ -6,6 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../assets/AuthProvider/AuthProvider';
+import { FaUser } from 'react-icons/fa';
 const Header = () => {
     const { user } = useContext(AuthContext)
     return (
@@ -23,14 +24,19 @@ const Header = () => {
                             <Nav.Link className='text-white'>Courses</Nav.Link>
                             <Nav.Link className='text-white'>Blog</Nav.Link>
                             <Nav.Link className='text-white'>FAQ</Nav.Link>
-                            <Nav.Link className='text-white'>Log In</Nav.Link>
+                            <Nav.Link>
+                                {user?.photoURL ?
+                                    <Image style={{ height: '30px' }} roundedCircle src={user?.photoURL}></Image> : <FaUser></FaUser>}
+                            </Nav.Link>
+
+                            <Nav.Link ><Link to='/login' className='text-white'>Log In</Link>           </Nav.Link>
                             <Nav.Link className='text-white'>Register</Nav.Link>
 
                         </Nav>
                     </Navbar.Collapse>
                 </div>
             </Container>
-        </Navbar>
+        </Navbar >
     );
 };
 
