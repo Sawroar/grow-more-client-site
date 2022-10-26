@@ -20,7 +20,7 @@ const Header = () => {
         <Navbar bg="dark" expand="lg" className='mb-3 '>
             <Container className='d-flex justify-content-between align-items-cente'>
                 <div>
-                    <Image src='../../public/grow.png'></Image>
+
                     <Navbar.Brand > <Link to='/' className='link'><span className='text-primary fs-2 fw-bold '>Grow</span><span className=' fs-2 fw-bold text-success  '>More</span></Link>
                     </Navbar.Brand>
                 </div>

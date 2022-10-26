@@ -35,27 +35,33 @@ const Login = () => {
     }
 
     return (
-        <Form onSubmit={handleSubmit} className='container'>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control name='email' required type="email" placeholder="Enter email" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control name='password' required type="password" placeholder="Password" />
-            </Form.Group>
-            <Form.Text className="text-danger">
+        <div className='container'>
+            <div className='container'>
+                <div className='container'>
+                    <Form onSubmit={handleSubmit} className='container'>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Email address</Form.Label>
+                            <Form.Control name='email' required type="email" placeholder="Enter email" />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control name='password' required type="password" placeholder="Password" />
+                        </Form.Group>
+                        <Form.Text className="text-danger">
 
-            </Form.Text>
-            <Button variant="primary" type="submit">
-                Log In
-            </Button>
-            <br />
-            <ButtonGroup vertical className='mt-2'>
-                <Button onClick={handleGoogleSignIn} className='mb-2' variant='outline-primary' ><div className='d-flex align-items-center '><FaGoogle className='mr-5'></FaGoogle>Log in with Google</div> </Button>
-                <Button variant='outline-dark'><FaGithub></FaGithub>Log in with Github</Button>
-            </ButtonGroup>
-        </Form>
+                        </Form.Text>
+                        <Button variant="primary" type="submit">
+                            Log In
+                        </Button>
+                        <br />
+                        <ButtonGroup vertical className='mt-2'>
+                            <Button onClick={handleGoogleSignIn} className='mb-2' variant='outline-primary' ><div className='d-flex align-items-center '><FaGoogle className='mr-5'></FaGoogle>Log in with Google</div> </Button>
+                            <Button variant='outline-dark'><FaGithub></FaGithub>Log in with Github</Button>
+                        </ButtonGroup>
+                    </Form>
+                </div>
+            </div>
+        </div>
     );
 };
 
