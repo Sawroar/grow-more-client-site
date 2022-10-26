@@ -8,10 +8,16 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../assets/AuthProvider/AuthProvider';
 import { FaUser } from 'react-icons/fa';
 const Header = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
     return (
-        <Navbar bg="dark" expand="lg">
-            <Container className='d-flex'>
+        <Navbar bg="dark" expand="lg" className='mb-5 '>
+            <Container className='d-flex justify-content-around'>
                 <div>
                     <Image src='../../public/grow.png'></Image>
                     <Navbar.Brand href="#home"><span className='text-primary fs-2 fw-bold'>Grow</span><span className=' fs-2 fw-bold text-success'>More</span>
@@ -24,13 +30,20 @@ const Header = () => {
                             <Nav.Link className='text-white'>Courses</Nav.Link>
                             <Nav.Link className='text-white'>Blog</Nav.Link>
                             <Nav.Link className='text-white'>FAQ</Nav.Link>
+                            <Nav.Link className='text-white'>{user?.uid ?
+                                <>
+                                    <span>{user?.displayName}</span>
+                                    <Nav.Link onClick={handleLogOut} className='text-white'>LogOut</Nav.Link>
+                                </> :
+                                <>
+                                    <Nav.Link ><Link to='/login' className='text-white'>Log In</Link>           </Nav.Link>
+                                    <Nav.Link className='text-white'><Link to='/register' className='text-white'> Register</Link></Nav.Link>
+                                </>}
+                            </Nav.Link>
                             <Nav.Link>
                                 {user?.photoURL ?
                                     <Image style={{ height: '30px' }} roundedCircle src={user?.photoURL}></Image> : <FaUser></FaUser>}
                             </Nav.Link>
-
-                            <Nav.Link ><Link to='/login' className='text-white'>Log In</Link>           </Nav.Link>
-                            <Nav.Link className='text-white'>Register</Nav.Link>
 
                         </Nav>
                     </Navbar.Collapse>
