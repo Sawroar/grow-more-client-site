@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../assets/AuthProvider/AuthProvider';
 import { FaUser } from 'react-icons/fa';
 import './Header.css'
+import grow from './../../src/assets/grow.png'
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
 
@@ -20,7 +21,7 @@ const Header = () => {
         <Navbar bg="dark" expand="lg" className='mb-3 '>
             <Container className='d-flex justify-content-between align-items-cente'>
                 <div>
-
+                    <Image src={grow} style={{ height: '40px', width: '40px' }}></Image>
                     <Navbar.Brand > <Link to='/' className='link'><span className='text-primary fs-2 fw-bold '>Grow</span><span className=' fs-2 fw-bold text-success  '>More</span></Link>
                     </Navbar.Brand>
                 </div>
