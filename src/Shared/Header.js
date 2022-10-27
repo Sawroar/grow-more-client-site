@@ -29,7 +29,7 @@ const Header = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link className='text-white'> <Link to='/courses' className='text-white  link'>Courses</Link></Nav.Link>
-                            <Nav.Link className='text-white'>Blog</Nav.Link>
+                            <Nav.Link className='text-white'><Link to='./blog' className='text-white  link'>Blog</Link></Nav.Link>
                             <Nav.Link className='text-white'>FAQ</Nav.Link>
                             <Nav.Link className='text-white'>{user?.uid ?
                                 <Nav.Link >
@@ -38,7 +38,7 @@ const Header = () => {
                                     </Nav.Link>
                                 </Nav.Link>
                                 :
-                                <Nav.Link >
+                                <Nav.Link className='d-flex' >
                                     <Nav.Link ><Link to='/login' className='text-white  link'>Log In</Link></Nav.Link>
                                     <Nav.Link className='text-white'><Link to='/register' className='text-white  link'> Register</Link></Nav.Link>
                                 </Nav.Link>

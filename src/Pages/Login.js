@@ -5,6 +5,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import { FaGoogle, FaGithub, } from 'react-icons/fa';
 import { AuthContext } from '../assets/AuthProvider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
+import { Col, Container, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -35,12 +36,14 @@ const Login = () => {
     }
 
     return (
-        <div className='container'>
-            <div className='container'>
-                <div className='container'>
+        <Container>
+            <Row>
+
+                <Col lg='4'></Col>
+                <Col lg='4' className='border rounded shadow-lg'><div className='container'>
                     <Form onSubmit={handleSubmit} className='container'>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Email address</Form.Label>
+                            <Form.Label className='mt-5'>Email address</Form.Label>
                             <Form.Control name='email' required type="email" placeholder="Enter email" />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -54,14 +57,20 @@ const Login = () => {
                             Log In
                         </Button>
                         <br />
-                        <ButtonGroup vertical className='mt-2'>
+                        <ButtonGroup vertical className='mt-2 mb-5'>
                             <Button onClick={handleGoogleSignIn} className='mb-2' variant='outline-primary' ><div className='d-flex align-items-center '><FaGoogle className='mr-5'></FaGoogle>Log in with Google</div> </Button>
                             <Button variant='outline-dark'><FaGithub></FaGithub>Log in with Github</Button>
                         </ButtonGroup>
                     </Form>
-                </div>
-            </div>
-        </div>
+                </div></Col>
+
+
+
+
+                <Col lg='4'></Col>
+            </Row>
+        </Container>
+
     );
 };
 
