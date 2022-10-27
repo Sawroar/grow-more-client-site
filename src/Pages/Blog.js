@@ -6,9 +6,9 @@ const Blog = () => {
             <h2 className='text-center'>Some Questions with it's Answers</h2>
             <Accordion defaultActiveKey="0" className='text-center shadow-lg mb-5 mt-5'>
                 <Accordion.Item eventKey="0">
-                    <Accordion.Header>How can we get the course access?</Accordion.Header>
+                    <Accordion.Header>what is cors?</Accordion.Header>
                     <Accordion.Body>
-                        By purchasing premium you can get access to our course. For getting access you have to visit our website. Then pay the amount for your desired course. After your successful payment, you will get access.
+                        CORS full meaning is Cross Origin Resource Sharing. CORS is an HTTP-header that allows a server to indicate any origins other than its own from which a browser should permit loading resources. CORS also relies on a mechanism by which browsers make a "preflight" request to the server hosting the cross-origin resource, in order to check that the server will permit the actual request.
                     </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="1">

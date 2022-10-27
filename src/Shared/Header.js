@@ -30,7 +30,7 @@ const Header = () => {
                         <Nav className="me-auto">
                             <Nav.Link className='text-white'> <Link to='/courses' className='text-white  link'>Courses</Link></Nav.Link>
                             <Nav.Link className='text-white'><Link to='./blog' className='text-white  link'>Blog</Link></Nav.Link>
-                            <Nav.Link className='text-white'>FAQ</Nav.Link>
+                            <Nav.Link className='text-white'><Link to='/faq' className='text-white  link'> FAQ</Link></Nav.Link>
                             <Nav.Link className='text-white'>{user?.uid ?
                                 <Nav.Link >
                                     <span>{user?.displayName}</span>
@@ -46,7 +46,7 @@ const Header = () => {
                             </Nav.Link>
                             <Nav.Link>
                                 {user?.photoURL ?
-                                    <Image style={{ height: '30px' }} roundedCircle src={user?.photoURL}></Image> : <FaUser></FaUser>}
+                                    <Image style={{ height: '30px' }} roundedCircle src={user?.photoURL}></Image> : <FaUser className='text-white'></FaUser>}
                             </Nav.Link>
 
                         </Nav>
