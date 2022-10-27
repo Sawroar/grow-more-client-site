@@ -32,8 +32,8 @@ const Header = () => {
                             <Nav.Link className='text-white'><Link to='./blog' className='text-white  link'>Blog</Link></Nav.Link>
                             <Nav.Link className='text-white'><Link to='/faq' className='text-white  link'> FAQ</Link></Nav.Link>
                             <Nav.Link className='text-white'>{user?.uid ?
-                                <Nav.Link >
-                                    <span>{user?.displayName}</span>
+                                <Nav.Link className='d-flex' >
+                                    <span className='text-white'>{user?.displayName}</span>
                                     <Nav.Link onClick={handleLogOut} className='text-white  link'>LogOut
                                     </Nav.Link>
                                 </Nav.Link>
@@ -46,7 +46,7 @@ const Header = () => {
                             </Nav.Link>
                             <Nav.Link>
                                 {user?.photoURL ?
-                                    <Image style={{ height: '30px' }} roundedCircle src={user?.photoURL}></Image> : <FaUser className='text-white'></FaUser>}
+                                    <Image style={{ height: '30px' }} roundedCircle src={user?.photoURL}></Image> : <FaUser cl></FaUser>}
                             </Nav.Link>
 
                         </Nav>

@@ -13,7 +13,7 @@ const Courses = () => {
 
     }, [])
     return (
-        <div className='border'>
+        <div className='border rounded shadow-lg'>
             <h2>This is category section{categories.length}</h2>
             <div>
                 {
