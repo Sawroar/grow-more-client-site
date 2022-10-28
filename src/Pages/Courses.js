@@ -1,8 +1,9 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+
 const Courses = () => {
     const [categories, setCategories] = useState([])
 
@@ -13,14 +14,21 @@ const Courses = () => {
 
     }, [])
     return (
-        <div className='border rounded shadow-lg'>
-            <h2>This is category section{categories.length}</h2>
-            <div>
-                {
-                    categories.map(category => <p key={category.id}><Link to={`/category/:${category.id}`}><Button variant="outline-primary">{category.name}</Button></Link></p>)
-                }
-            </div>
-        </div >
+        <Container>
+            <Row>
+                <Col lg='2'></Col>
+
+
+                <div className='border rounded shadow-lg'>
+                    <h2 className='text-success'>This is category section</h2>
+                    <div>
+                        {
+                            categories.map(category => <p key={category.id}><Link to={`/category/${category.id}`}><Button variant="outline-primary">{category.name}</Button></Link></p>)
+                        }
+                    </div>
+                </div >
+                <Col lg='10'></Col>
+            </Row> </Container>
     );
 };
 

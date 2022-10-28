@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Image, } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
@@ -7,9 +7,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../assets/AuthProvider/AuthProvider';
 import { FaUser } from 'react-icons/fa';
+
+import ToggleButton from 'react-bootstrap/ToggleButton';
 import './Header.css'
 import grow from './../../src/assets/grow.png'
 const Header = () => {
+    const [checked, setChecked] = useState(false);
     const { user, logOut } = useContext(AuthContext)
 
     const handleLogOut = () => {
@@ -32,6 +35,7 @@ const Header = () => {
                             <Nav.Link className='text-white'> <Link to='/courses' className='text-white  link'>Courses</Link></Nav.Link>
                             <Nav.Link className='text-white'><Link to='./blog' className='text-white  link'>Blog</Link></Nav.Link>
                             <Nav.Link className='text-white'><Link to='/faq' className='text-white  link'> FAQ</Link></Nav.Link>
+
                             <Nav.Link className='text-white'>{user?.uid ?
                                 <Nav.Link className='d-flex' >
                                     <span className='text-white'>{user?.displayName}</span>
@@ -47,10 +51,21 @@ const Header = () => {
                             </Nav.Link>
                             <Nav.Link>
                                 {user?.photoURL ?
-                                    <Image style={{ height: '30px' }} roundedCircle src={user?.photoURL}></Image> : <FaUser cl></FaUser>}
+                                    <Image style={{ height: '30px' }} roundedCircle src={user?.photoURL}></Image> : <FaUser className='text-white'></FaUser>}
                             </Nav.Link>
 
                         </Nav>
+                        <ToggleButton
+                            className="mb-2"
+                            id="toggle-check"
+                            type="checkbox"
+                            variant="outline-primary"
+                            checked={checked}
+                            value="1"
+                            onChange={(e) => setChecked(e.currentTarget.checked)}
+                        >
+                            Dark
+                        </ToggleButton>
                     </Navbar.Collapse>
                 </div>
             </Container>

@@ -1,6 +1,6 @@
 import React from 'react';
 import grow from './../../src/assets/grow.png'
-import { Button, Col, Container, Image, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 const Home = () => {
     return (
         <div>

@@ -3,6 +3,7 @@ import Main from "../layout/Main";
 import Blog from "../Pages/Blog";
 import Category from "../Pages/Category";
 import Courses from "../Pages/Courses";
+import Error from "../Pages/Error";
 import Faq from "../Pages/Faq";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
@@ -12,6 +13,7 @@ export const routes = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <Error></Error>,
         children: [
             {
                 path: '/',
@@ -20,7 +22,8 @@ export const routes = createBrowserRouter([
             ,
             {
                 path: '/category/:id',
-                element: <Category></Category>
+                element: <Category></Category>,
+                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
             }
             ,
             {

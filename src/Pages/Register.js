@@ -1,12 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
+
 import { AuthContext } from '../assets/AuthProvider/AuthProvider';
 
 import { Col, Container, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
+    const [error, setError] = useState('')
     const { createUser } = useContext(AuthContext)
 
     const handleSubmit = (event) => {
@@ -19,7 +21,12 @@ const Register = () => {
                 const user = result.user;
                 console.log(user)
                 form.reset()
-            }).catch(error => console.log(error))
+                setError('')
+            }).catch(error => {
+                console.log(error)
+                setError(error.message)
+            }
+            )
     }
     return (
         <Container>
@@ -47,11 +54,13 @@ const Register = () => {
                             <Form.Control type="password" name='password' required placeholder="Enter Password" />
                         </Form.Group>
                         <Form.Text className="text-danger">
-
+                            {error}
                         </Form.Text>
+                        <br />
                         <Button variant="primary" className='mb-5' type="submit">
                             Register
                         </Button>
+                        <h6 className='mb-3 '>Already  Have Account ? <Link to='/login'>Log in</Link></h6>
                     </Form>
                 </Col>
                 <Col lg='4'></Col>

@@ -1,10 +1,16 @@
 import React from 'react';
-const Category = () => {
+import { useLoaderData } from 'react-router-dom';
+import Course from './Course';
 
+const Category = () => {
+    const allCourse = useLoaderData()
 
     return (
         <div className='border'>
-            This is Category
+
+            {
+                allCourse.map(course => <Course key={course._id} course={course}></Course>)
+            }
         </div >
     );
 };
